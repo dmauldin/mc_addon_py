@@ -1,52 +1,74 @@
-import requests
 import json
-from urllib.parse import urlencode
+import requests
+from dateutil.parser import parse
+from datetime import datetime, timezone
+from constants import Category, Game, Section, Sort
+from pymongo import MongoClient
 
-LATEST_DATE_FILENAME = 'latestAddonDate.txt'
+mongo_client = MongoClient('mongodb://localhost:27017')
+db_collection = mongo_client.mods.mods
 
-# TODO(dmauldin): read in latest addon fetch date
-# latestDate = open(LATEST_DATE_FILENAME, 'r').read()
-# print(latestDate)
-quit()
+LATEST_DATE_FILENAME = 'latestModDate.txt'
 
-ADDON_PATH = './addons/'
+try:
+    file = open(LATEST_DATE_FILENAME, 'r')
+    prevLatestDate = parse(file.read())
+    file.close()
+except FileNotFoundError:
+    prevLatestDate = datetime(1, 1, 1, tzinfo=timezone.utc)
 
-CATEGORY = {
-    'All': 0
-}
+nextLatestDate = None
 
-GAME = {
-    'Minecraft': 432
-}
-
-SECTION = {
-    'Mods': 6
-}
-
-SORT = {
-    'LastUpdated': 2
-}
+MOD_PATH: str = './mods/'
 
 params = {
-    'categoryId': CATEGORY['All'],
-    'gameId': GAME['Minecraft'],
+    'categoryId': Category.All,
+    'gameId': Game.Minecraft,
     'gameVersion': '1.12.2',
     'index': 0,
     'pageSize': 25,
     'searchFilter': '',
-    'sectionId': SECTION['Mods'],
-    'sort': SORT['LastUpdated']
+    'sectionId': Section.Mods,
+    'sort': Sort.LastUpdated
 }
 
 search_url = "https://addons-ecs.forgesvc.net/api/v2/addon/search"
 headers = {'User-Agent': 'Mozilla/5.0'}
 
 index = 0
-while index < 400:
+updated_count = 0
+
+# The API has a limit of index < 10000, which is 400 * 25
+while index < 10_000:
     params['index'] = index
-    print(index)
-    index += 1
+    print('index: ', index)
+    index += 25
     response = requests.get(search_url, params, headers=headers)
-    for addon in response.json():
-        filename = ADDON_PATH + addon['slug'] + ".json"
-        open(filename, 'w').write(json.dumps(addon))
+    mods = response.json()
+
+    # TODO(dmauldin): update the replace_one call to do all 25 mods at a time
+    for mod in mods:
+        dateModified = parse(mod['dateModified'])
+
+        if nextLatestDate is None:
+            nextLatestDate = dateModified
+
+        if dateModified > prevLatestDate:
+            db_collection.replace_one({'id': mod['id']}, mod, upsert=True)
+            filename = MOD_PATH + mod['slug'] + ".json"
+            # TODO(dmauldin): eventually remove this when the mongo code is stable
+            with open(filename, 'w') as mod_file:
+                mod_file.write(json.dumps(mod))
+            updated_count = updated_count + 1
+
+            if dateModified > nextLatestDate:
+                nextLatestDate = dateModified
+
+    if len(mods) < 25:
+        break
+
+if nextLatestDate is not None:
+    file = open(LATEST_DATE_FILENAME, 'w')
+    file.write(nextLatestDate.isoformat())
+
+print("Updates found:", updated_count)
