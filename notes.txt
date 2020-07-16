@@ -1,0 +1,17 @@
+https://addons-ecs.forgesvc.net/api/v2/addon/search?categoryId=0&gameId=432&index=0&pageSize=25&searchFilter=&sectionId=6&sort=2&gameVersion=1.12.2
+
+gameVersion can be omitted or empty
+searchFilter can be omitted or empty
+pageSize can be up to 200
+
+Category:
+    All = 0
+
+Game:
+    Minecraft = 432
+
+Section:
+    Mods = 6
+
+Sort:
+    LastUpdated = 2
