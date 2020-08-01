@@ -1,0 +1,257 @@
+{
+  "_id": {
+    "$oid": "5f06559bd5a6cb66d4e11186"
+  },
+  "id": 251079,
+  "name": "A Block of Charcoal",
+  "authors": [
+    {
+      "name": "TurkeyDev",
+      "url": "https://www.curseforge.com/members/9479179-turkeydev?username=turkeydev",
+      "projectId": 251079,
+      "id": 46623,
+      "projectTitleId": null,
+      "projectTitleTitle": null,
+      "userId": 9479179,
+      "twitchId": 32907202
+    }
+  ],
+  "attachments": [
+    {
+      "id": 50732,
+      "projectId": 251079,
+      "description": "",
+      "isDefault": true,
+      "thumbnailUrl": "https://media.forgecdn.net/avatars/thumbnails/50/732/256/256/636094924454167215.png",
+      "title": "636094924454167215.png",
+      "url": "https://media.forgecdn.net/avatars/50/732/636094924454167215.png",
+      "status": 1
+    }
+  ],
+  "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/a-block-of-charcoal",
+  "gameId": 432,
+  "summary": "Adds a charcoal  block to minecraft",
+  "defaultFileId": 3014510,
+  "downloadCount": 2806314,
+  "latestFiles": [
+    {
+      "id": 3014510,
+      "displayName": "A Block of Charcoal v1.2",
+      "fileName": "A Block of Charcoal-1.2.jar",
+      "fileDate": "2020-07-25T17:57:53.777Z",
+      "fileLength": 8940,
+      "releaseType": 1,
+      "fileStatus": 4,
+      "downloadUrl": "https://edge.forgecdn.net/files/3014/510/A Block of Charcoal-1.2.jar",
+      "isAlternate": false,
+      "alternateFileId": 0,
+      "dependencies": [],
+      "isAvailable": true,
+      "modules": [
+        {
+          "foldername": "META-INF",
+          "fingerprint": 567960514,
+          "type": 3
+        },
+        {
+          "foldername": "com",
+          "fingerprint": 617581539,
+          "type": 3
+        },
+        {
+          "foldername": "data",
+          "fingerprint": 567132072,
+          "type": 3
+        },
+        {
+          "foldername": "pack.mcmeta",
+          "fingerprint": {
+            "$numberLong": "4253522632"
+          },
+          "type": 3
+        },
+        {
+          "foldername": "assets",
+          "fingerprint": 852558562,
+          "type": 3
+        }
+      ],
+      "packageFingerprint": 1733169577,
+      "gameVersion": [
+        "1.16.1",
+        "Forge"
+      ],
+      "sortableGameVersion": [
+        {
+          "gameVersionPadded": "0000000001.0000000016.0000000001",
+          "gameVersion": "1.16.1",
+          "gameVersionReleaseDate": "2020-06-24T12:41:11.823Z",
+          "gameVersionName": "1.16.1"
+        },
+        {
+          "gameVersionPadded": "0",
+          "gameVersion": "",
+          "gameVersionReleaseDate": "2019-08-01T00:00:00Z",
+          "gameVersionName": "Forge"
+        }
+      ],
+      "installMetadata": null,
+      "changelog": null,
+      "hasInstallScript": false,
+      "isCompatibleWithClient": false,
+      "categorySectionPackageType": 6,
+      "restrictProjectFileAccess": 1,
+      "projectStatus": 4,
+      "renderCacheId": 1935109,
+      "fileLegacyMappingId": null,
+      "projectId": 251079,
+      "parentProjectFileId": null,
+      "parentFileLegacyMappingId": null,
+      "fileTypeId": null,
+      "exposeAsAlternative": null,
+      "packageFingerprintId": 494279731,
+      "gameVersionDateReleased": "2008-03-01T06:00:00Z",
+      "gameVersionMappingId": 2340040,
+      "gameVersionId": 4458,
+      "gameId": 432,
+      "isServerPack": false,
+      "serverPackFileId": null,
+      "gameVersionFlavor": null
+    }
+  ],
+  "categories": [
+    {
+      "categoryId": 424,
+      "name": "Cosmetic",
+      "url": "https://www.curseforge.com/minecraft/mc-mods/cosmetic",
+      "avatarUrl": "https://media.forgecdn.net/avatars/6/39/635351497555976928.png",
+      "parentId": 6,
+      "rootId": 6,
+      "projectId": 251079,
+      "avatarId": 6039,
+      "gameId": 432
+    },
+    {
+      "categoryId": 420,
+      "name": "Storage",
+      "url": "https://www.curseforge.com/minecraft/mc-mods/storage",
+      "avatarUrl": "https://media.forgecdn.net/avatars/6/35/635351496772023801.png",
+      "parentId": 6,
+      "rootId": 6,
+      "projectId": 251079,
+      "avatarId": 6035,
+      "gameId": 432
+    }
+  ],
+  "status": 4,
+  "primaryCategoryId": 424,
+  "categorySection": {
+    "id": 8,
+    "gameId": 432,
+    "name": "Mods",
+    "packageType": 6,
+    "path": "mods",
+    "initialInclusionPattern": ".",
+    "extraIncludePattern": null,
+    "gameCategoryId": 6
+  },
+  "slug": "a-block-of-charcoal",
+  "gameVersionLatestFiles": [
+    {
+      "gameVersion": "1.16.1",
+      "projectFileId": 3014510,
+      "projectFileName": "A Block of Charcoal-1.2.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.15.2",
+      "projectFileId": 2854864,
+      "projectFileName": "A Block of Charcoal-1.2.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.15.1",
+      "projectFileId": 2854864,
+      "projectFileName": "A Block of Charcoal-1.2.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.14.4",
+      "projectFileId": 2768147,
+      "projectFileName": "A Block of Charcoal-1.2.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.14.3",
+      "projectFileId": 2730406,
+      "projectFileName": "A Block of Charcoal-1.2.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.13.2",
+      "projectFileId": 2684071,
+      "projectFileName": "A Block of Charcoal-1.2.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.12.2",
+      "projectFileId": 2574220,
+      "projectFileName": "A Block of Charcoal-1.2.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.11.2",
+      "projectFileId": 2446791,
+      "projectFileName": "A Block of Charcoal-1.1.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.12",
+      "projectFileId": 2446790,
+      "projectFileName": "A Block of Charcoal-1.1.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.12.1",
+      "projectFileId": 2446790,
+      "projectFileName": "A Block of Charcoal-1.1.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.10.2",
+      "projectFileId": 2436640,
+      "projectFileName": "A Block of Charcoal-1.1.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    },
+    {
+      "gameVersion": "1.7.10",
+      "projectFileId": 2331021,
+      "projectFileName": "A Block of Charcoal-1.0.jar",
+      "fileType": 1,
+      "gameVersionFlavor": null
+    }
+  ],
+  "isFeatured": false,
+  "popularityScore": 2606.863525390625,
+  "gamePopularityRank": 1016,
+  "primaryLanguage": "enUS",
+  "gameSlug": "minecraft",
+  "gameName": "Minecraft",
+  "portalName": "www.curseforge.com",
+  "dateModified": "2020-07-25T17:59:00.953Z",
+  "dateCreated": "2016-09-15T04:27:25.4Z",
+  "dateReleased": "2020-07-25T17:57:53.777Z",
+  "isAvailable": true,
+  "isExperiemental": false
+}
