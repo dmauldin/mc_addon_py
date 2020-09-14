@@ -1,7 +1,7 @@
 import requests
 from dateutil.parser import parse
 from constants import Category, Game, Section, Sort
-from pymongo import MongoClient
+from pymongo import MongoClient, ReplaceOne
 
 mongo_client = MongoClient('mongodb://localhost:27017')
 db_collection = mongo_client.mods.mods
@@ -35,20 +35,24 @@ for index in range(0, 9999, PAGE_SIZE):
     params['index'] = index
     print('index: ', index)
     mods = requests.get(search_url, params, headers=headers).json()
+    operations = []
 
-    # TODO(dmauldin): update the replace_one call to do all 25 mods at a time
     # should limit to only mods that have a newer dateModified
     for mod in mods:
-        dateModified = parse(mod['dateModified'])
-
+        # TODO(dmauldin): this needs to be updated for anything other than sort by latest
         if parse(mod['dateModified']) <= prevLatestDate:
             done = True
             break
         else:
-            db_collection.replace_one({'id': mod['id']}, mod, upsert=True)
-            updated_count = updated_count + 1
+            # This is ReplaceOne instead of UpdateOne because we're receiving
+            # the entire mod object from the API and it may include changes to
+            # property names
+            operations.append(ReplaceOne({'id': mod['id']}, mod, upsert=True))
 
-    if len(mods) < 25 or done:
+    result = db_collection.bulk_write(operations)
+    updated_count = updated_count + len(operations)
+
+    if len(mods) < PAGE_SIZE or done:
         break
 
 print("Updates found:", updated_count)

@@ -1,4 +1,5 @@
 # TODO(dmauldin): fill in the rest of the values for each of these
+#                 possibly fetching from API and memoizing them
 # TODO(dmauldin): create a Version class?  Version.Minecraft.1_12_2?
 
 class Category:

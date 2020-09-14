@@ -41,7 +41,7 @@ class Mod(Base):
     dateCreated = Column(TIMESTAMP)
     dateReleased = Column(TIMESTAMP)
     isAvailable = Column(Boolean)
-    # TODO(dmauldin): curse has this as "isExperiemental", so take care
+    # TODO(dmauldin): curse has this as "isExperiemental" (typo), so take care
     isExperimental = Column(Boolean)
     # ARRAYS
     authors = relationship("ModAuthor", backref="mod")
